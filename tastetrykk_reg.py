@@ -7,12 +7,12 @@ path = 'C:\\Python\\keystrokes.txt'
 
 keystrokes = 0
 
-def les_fil():
+def read_file():
     global keystrokes
-    with open(path, 'r') as fil:
-        tastetrykk_lest = fil.read()
+    with open(path, 'r') as file:
+        keystrokes_lest = file.read()
     keystrokes = int(keystrokes_read)
-    fil.close()
+    file.close()
     return keystrokes
 
 
@@ -20,30 +20,30 @@ def keystrokes_reg(e):
     global keystrokes
     keystrokes += 1
     
-    skriv_antall()
+    write_number()
     
 
-def lagre():
+def save():
     global keystrokes
-    with open(path, 'w') as fil:
-        fil.write(str(keystrokes))
-        fil.close()
+    with open(path, 'w') as file:
+        file.write(str(keystrokes))
+        file.close()
         
-    nå=time.ctime()
-    print (f'lagret {nå}')
+    now=time.ctime()
+    print (f'saved {now}')
     print (f'number of keystrokes: {keystrokes}')
     
         
-def skriv_antall():
+def write_number():
     global keystrokes
     print (keystrokes)
 
 
-les_fil()
+read_file()
     
 keyboard.on_press(keystrokes_reg)
 
 while True:
     time.sleep(60)
-    lagre()
+    save()
 

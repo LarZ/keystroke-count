@@ -1,4 +1,4 @@
-# registering keystrokes, saving the count to a textfile txt
+# registering keystrokes, saving the count to a textfile
 
 import time
 import keyboard
